@@ -1,0 +1,252 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Accessible Health Service
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+   header {
+            background-color: #2b6cb0;
+        }
+   .service-card {
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     border-radius: 0.5rem;
+     overflow: hidden;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   }
+   .service-card:hover {
+     transform: scale(1.05);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+   }
+   #serviceDetails {
+     transition: opacity 0.3s ease, transform 0.3s ease;
+   }
+   #serviceDetails.hidden {
+     opacity: 0;
+     transform: translateY(-20px);
+   }
+   #serviceDetails.visible {
+     opacity: 1;
+     transform: translateY(0);
+   }
+   button {
+     transition: background-color 0.3s ease;
+   }
+   button:hover {
+     background-color: #3182ce;
+   }
+  </style>
+ </head>
+ <body>
+  <header class="text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-3xl font-bold">
+     Accessible Health Service
+    </h1>
+    <nav>
+     <ul class="flex space-x-6">
+      <li>
+       <a class="hover:underline" href="#home" id="homeButton">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#services" id="servicesButton">
+        Services
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#about" id="aboutButton">
+        About Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#contact" id="contactButton">
+        Contact
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#login" id="loginButton">
+        Login
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main class="container mx-auto mt-8">
+   <section id="home" class="bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-4">
+     Welcome to Accessible Health Service
+    </h2>
+    <p>
+     Your health is our priority. Explore our services and get in touch with us for more information.
+    </p>
+   </section>
+   <section id="services" class="bg-white p-6 rounded-lg shadow-lg mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+     Our Services
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+     <div class="service-card" onclick="showServiceDetails('generalConsultation')">
+      <img alt="Doctor consulting with a patient" class="w-full h-48 object-cover" src="https://storage.googleapis.com/a1aa/image/vqVhNKeM8jSHHC9y4KiPtzO7dLpgCYn2BvLSUm2FEzKigo5JA.jpg"/>
+      <h3 class="text-xl font-semibold mb-2">
+       General Consultation
+      </h3>
+      <p>
+       Get a general health consultation with our experienced doctors.
+      </p>
+     </div>
+     <div class="service-card" onclick="showServiceDetails('telehealth')">
+      <img alt="Medical professional providing telehealth services" class="w-full h-48 object-cover" src="https://storage.googleapis.com/a1aa/image/XUZ1aK2eP50MWi4u94yJNHD3sDbjLHKIddk2uvrt4NeHBRzTA.jpg"/>
+      <h3 class="text-xl font-semibold mb-2">
+       Telehealth Services
+      </h3>
+      <p>
+       Access healthcare services remotely through our telehealth platform.
+      </p>
+     </div>
+     <div class="service-card" onclick="showServiceDetails('pharmacy')">
+      <img alt="Pharmacist providing medication" class="w-full h-48 object-cover" src="https://storage.googleapis.com/a1aa/image/W5EidsNu06o3MVfdo3zHiCEhymZipoOiwYHl0ZPIOyrlgo5JA.jpg"/>
+      <h3 class="text-xl font-semibold mb-2">
+       Pharmacy Services
+      </h3>
+      <p>
+       Order your medications online and get them delivered to your doorstep.
+      </p>
+     </div>
+    </div>
+    <div id="serviceDetails" class="hidden mt-4 p-4 bg-gray-100 rounded-lg">
+      <h3 class="text-xl font-semibold" id="serviceTitle"></h3>
+      <p id="serviceDescription"></p>
+      <button class="mt-2 bg-blue-600 text-white p-2 rounded" onclick="closeServiceDetails()">Close</button>
+    </div>
+   </section>
+   <section id="about" class="bg-white p-6 rounded-lg shadow-lg mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+     About Us
+    </h2>
+    <p>
+     We are dedicated to providing accessible health services to our community. Our team of experienced professionals is here to help you with your health needs.
+    </p>
+   </section>
+   <section id="contact" class="bg-white p-6 rounded-lg shadow-lg mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+     Contact Us
+    </h2>
+    <form id="contactForm">
+     <div class="mb-4">
+      <label class="block text-sm font-medium mb-2" for="contactName">Name</label>
+      <input class="border border-gray-300 p-2 w-full" type="text" id="contactName" required/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-sm font-medium mb-2" for="contactEmail">Email</label>
+      <input class="border border-gray-300 p-2 w-full" type="email" id="contactEmail" required/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-sm font-medium mb-2" for="contactMessage">Message</label>
+      <textarea class="border border-gray-300 p-2 w-full" id="contactMessage" rows="4" required></textarea>
+     </div>
+     <button class="bg-blue-600 text-white p-2 rounded" type="submit">Send Message</button>
+    </form>
+   </section>
+  </main>
+  <footer class="bg-blue-600 text-white p-4 mt-8">
+   <div class="container mx-auto text-center">
+    <p>
+     © 2023 Accessible Health Service. All rights reserved.
+    </p>
+    <div class="flex justify-center space-x-4 mt-2">
+     <a class="hover:underline" href="#">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a class="hover:underline" href="#">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a class="hover:underline" href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a class="hover:underline" href="#">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   document.getElementById('homeButton').onclick = function() {
+     document.getElementById('home').scrollIntoView();
+   };
+   document.getElementById('servicesButton').onclick = function() {
+     document.getElementById('services').scrollIntoView();
+   };
+   document.getElementById('aboutButton').onclick = function() {
+     document.getElementById('about').scrollIntoView();
+   };
+   document.getElementById('contactButton').onclick = function() {
+     document.getElementById('contact').scrollIntoView();
+   };
+   document.getElementById('loginButton').onclick = function() {
+     document.getElementById('login').classList.toggle('hidden');
+   };
+
+   function closeLogin() {
+     document.getElementById('login').classList.add('hidden');
+   }
+
+   document.getElementById('loginForm').onsubmit = function(event) {
+     event.preventDefault();
+     alert('Login functionality not implemented yet.');
+     closeLogin();
+   };
+
+   document.getElementById('contactForm').onsubmit = function(event) {
+     event.preventDefault();
+     alert('Message sent! We will get back to you shortly.');
+     document.getElementById('contactForm').reset();
+   };
+
+   function showServiceDetails(service) {
+     const serviceDetails = {
+       generalConsultation: {
+         title: "General Consultation",
+         description: "Our general consultation service provides you with access to experienced doctors who can help diagnose and treat a variety of health issues. Whether you need a routine check-up or have specific health concerns, we are here to assist you."
+       },
+       telehealth: {
+         title: "Telehealth Services",
+         description: "Our telehealth services allow you to consult with healthcare professionals from the comfort of your home. You can receive medical advice, prescriptions, and follow-up care through our secure online platform."
+       },
+       pharmacy: {
+         title: "Pharmacy Services",
+         description: "Our pharmacy services enable you to order medications online and have them delivered directly to your home. We ensure that you receive your prescriptions safely and promptly."
+       }
+     };
+
+     document.getElementById('serviceTitle').innerText = serviceDetails[service].title;
+     document.getElementById('serviceDescription').innerText = serviceDetails[service].description;
+     const serviceDetailsDiv = document.getElementById('serviceDetails');
+     serviceDetailsDiv.classList.remove('hidden');
+     serviceDetailsDiv.classList.add('visible');
+   }
+
+   function closeServiceDetails() {
+     const serviceDetailsDiv = document.getElementById('serviceDetails');
+     serviceDetailsDiv.classList.remove('visible');
+     serviceDetailsDiv.classList.add('hidden');
+   }
+  </script>
+ </body>
+</html>
